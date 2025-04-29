@@ -1,0 +1,77 @@
+.theme-toggle {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 1000;
+}
+
+.theme-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-label {
+  cursor: pointer;
+  width: 3.5rem;
+  height: 2rem;
+  background: var(--bg-secondary);
+  display: block;
+  border-radius: 100px;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.toggle-label:after {
+  content: '';
+  position: absolute;
+  top: 0.25rem;
+  left: 0.25rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: var(--accent-color);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.toggle-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.875rem;
+  transition: opacity 0.3s ease;
+}
+
+.toggle-icon:first-child {
+  left: 0.5rem;
+  opacity: 0;
+}
+
+.toggle-icon:last-child {
+  right: 0.5rem;
+  opacity: 1;
+}
+
+input:checked + .toggle-label {
+  background: var(--bg-secondary);
+}
+
+input:checked + .toggle-label:after {
+  left: calc(100% - 1.75rem);
+  background: var(--accent-color);
+}
+
+input:checked + .toggle-label .toggle-icon:first-child {
+  opacity: 1;
+}
+
+input:checked + .toggle-label .toggle-icon:last-child {
+  opacity: 0;
+}
+
+/* Hover effect */
+.toggle-label:hover {
+  background: var(--bg-secondary);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+}

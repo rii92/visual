@@ -1,16 +1,168 @@
+:root {
+  /* Light theme */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #2d3436;
+  --text-secondary: #636e72;
+  --accent-color: #0984e3;
+  --card-bg: #ffffff;
+  --card-shadow: rgba(0, 0, 0, 0.08);
+  --border-color: #dfe6e9;
+  --heading-color: #2d3436;
+  --hero-overlay: rgba(0, 0, 0, 0.4);
+  --card-hover-shadow: rgba(0, 0, 0, 0.12);
+}
+
+[data-theme='dark'] {
+  /* Dark theme */
+  --bg-primary: #1a1b1e;
+  --bg-secondary: #2d2e32;
+  --text-primary: #e4e6eb;
+  --text-secondary: #b0b3b8;
+  --accent-color: #4dabf7;
+  --card-bg: #2d2e32;
+  --card-shadow: rgba(0, 0, 0, 0.2);
+  --border-color: #3d3d3d;
+  --heading-color: #e4e6eb;
+  --hero-overlay: rgba(0, 0, 0, 0.6);
+  --card-hover-shadow: rgba(0, 0, 0, 0.3);
+}
+
+/* Typography improvements */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-header {
-  background-color: #000;
-  padding: 20px;
-  color: white;
-  text-align: center;
+/* Improved headings */
+h1, h2, h3 {
+  color: var(--heading-color);
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
-main {
-  padding: 20px;
+/* Hero section improvements */
+.hero-section {
+  position: relative;
+  background: linear-gradient(-45deg, #1a2a6c, #b21f1f, #fdbb2d);
+  background-size: 400% 400%;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--hero-overlay);
+}
+
+.hero-section h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  position: relative;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hero-section .subtitle {
+  font-size: 1.5rem;
+  font-weight: 400;
+  opacity: 0.95;
+  position: relative;
+}
+
+/* Card improvements */
+.stat-card,
+.impact-card {
+  background: var(--card-bg);
+  color: var(--text-primary);
+  box-shadow: 0 4px 6px var(--card-shadow);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover,
+.impact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px var(--card-hover-shadow);
+}
+
+.stat-card h3,
+.impact-card h3 {
+  color: var(--accent-color);
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.impact-card p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* Content spacing */
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+section {
+  padding: 5rem 0;
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-section .subtitle {
+    font-size: 1.25rem;
+  }
+
+  .content-wrapper {
+    padding: 0 1.5rem;
+  }
+
+  section {
+    padding: 3rem 0;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .intro-section {
+    background: #1a1a1a;
+    color: #fff;
+  }
+
+  .stat-card,
+  .impact-card {
+    background: #2d2d2d;
+    color: #fff;
+  }
+
+  .stat-card h3 {
+    color: #fdbb2d;
+  }
+
+  .impact-card h3 {
+    color: #fdbb2d;
+    border-bottom-color: #3d3d3d;
+  }
+
+  .impact-card p {
+    color: #ccc;
+  }
 }
 
 /* Styles untuk legenda */
@@ -29,4 +181,10 @@ main {
   margin-right: 8px;
   opacity: 0.7;
 }
+
+
+
+
+
+
 
